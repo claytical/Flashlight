@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour {
-	public List<GameObject> list; 
+public class BackPack : MonoBehaviour {
+	public bool itemInHands;
+	public List<GameObject> list;
 	// Use this for initialization
 	void Start () {
 		

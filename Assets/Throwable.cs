@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Throwable : MonoBehaviour {
-	private bool readyToThrow;
+	public bool readyToThrow;
 	// Use this for initialization
 	void Start () {
 		readyToThrow = false;
@@ -16,15 +16,25 @@ public class Throwable : MonoBehaviour {
 	void ResetTrigger() {
 		GetComponent<BoxCollider> ().isTrigger = true;
 		readyToThrow = false;
+
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (readyToThrow) {
-			if (Input.GetKey (KeyCode.LeftControl)) {
+			if (Input.GetKeyDown (KeyCode.LeftControl)) {
+				GetComponentInParent<BackPack> ().itemInHands = false;
 				transform.parent = null;
 				GetComponent<Rigidbody> ().isKinematic = false;
-				GetComponent<Rigidbody> ().AddForce (transform.forward * 50f);
+				//one time hit
+				GetComponent<Rigidbody> ().AddForce (transform.forward * 25f, ForceMode.Impulse);
+
+			}
+			if (Input.GetKey (KeyCode.LeftControl)) {
+				//make the force continuous
+				//				GetComponent<Rigidbody> ().AddForce (transform.forward * 25f, ForceMode.Acceleration);
+			}
+			if (Input.GetKeyUp (KeyCode.LeftControl)) {
 				Invoke ("ResetTrigger", 1);
 			}
 		}
