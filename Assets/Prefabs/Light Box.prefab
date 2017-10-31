@@ -164,8 +164,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.5955882, g: 0.26713884, b: 0.26713884, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 82.3
+  m_Range: 3.22
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -177,7 +177,7 @@ Light:
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
+  m_DrawHalo: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -212,3 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104a5907162eb764ca4645e51fbb700d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readyToThrow: 0
+  powerMeter: {fileID: 0}
